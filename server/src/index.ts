@@ -1,11 +1,13 @@
 // import { MikroORM, RequiredEntityData } from "@mikro-orm/core";
-// import { __prod__ } from "./constants";
+import { MikroORM } from "@mikro-orm/core";
+import { __prod__ } from "./constants";
 // import { Post } from "./entities/Post";
-// import microConfig from "./mikro-orm.config";
+import microConfig from "./mikro-orm.config";
 
 (async () => {
-	// const orm = await MikroORM.init(microConfig);
-	console.log("Hello World");
+	const orm = await MikroORM.init(microConfig);
+	// console.log("Hello World");
+	await orm.getMigrator().up();
 
 	// const post = orm.em.create(Post, {
 	// 	title: "First Post!",
