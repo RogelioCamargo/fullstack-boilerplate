@@ -14,6 +14,10 @@ import { PostResolver } from "./resolvers/post";
 	const orm = await MikroORM.init(microConfig);
 	await orm.getMigrator().up();
 
+	// const generator = orm.getSchemaGenerator();
+	// await generator.updateSchema();
+	// OR npx mikro-orm schema:create
+
 	const app = express();
 
 	const apolloServer = new ApolloServer({
